@@ -1,0 +1,28 @@
+<div class="field">
+    <%=f.label :first_name%><br/>
+    <%=f.text_field :first_name%>
+  </div>
+
+  <div class="field">
+    <%=f.label :last_name%><br/>
+    <%=f.text_field :last_name%>
+  </div>
+
+  <div class="field">
+    <%=f.label :dob%><br/>
+    <%=f.text_field :date_of_birth%>
+  </div>
+
+   <div class="field">
+    <%=f.label :city%><br/>
+    <%=f.text_field :city%>
+  </div>
+
+   <div class="field">
+    <%=f.label :gender%><br/>
+    <%=f.text_field :gender%>
+  </div> 
+
+
+
+   <%= button_to "logout", destroy_user_session_path, method: :delete, class: "btn btn-light"%>
