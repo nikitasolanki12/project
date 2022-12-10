@@ -16,6 +16,7 @@ gem 'devise'
 
 gem 'pg'
 
+gem 'bootstrap', '~> 5.2', '>= 5.2.3'
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
@@ -46,8 +47,10 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
-# Use Sass to process CSS
-# gem "sassc-rails"
+ # Use Sass to process CSS
+  gem "sass-rails"
+ # gem 'bootstrap-sass', '~> 3.2.0'
+ # gem 'autoprefixer-rails'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
