@@ -1,0 +1,18 @@
+<div class="card shadow-sm">
+    <%= image_tag url_for(post.image) if post.image.attached? %>
+</text></svg>
+
+  <div class="card-body">
+    <p class="card-text"><%= post.description %></p><br/>
+
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="btn-group">
+        
+        <%= link_to "Edit", edit_post_path(id:post.id),class: "btn btn-sm btn-outline-primary" %><br/>
+        <%= button_to 'Delete', post_path(post), method: :delete ,class:"btn btn-sm btn-outline-primary"%><br>
+      
+      </div>
+     
+    </div>
+  </div>
+</div>
