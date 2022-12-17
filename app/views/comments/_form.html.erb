@@ -1,0 +1,7 @@
+
+<div class="comment-form">
+  <%= form_for([post, post.comments.build ], local:true, method: "post") do |f| %>
+    <%= f.text_field :description, placeholder: 'Add a comment...' , style:'width:50%;' %>
+    <%= f.submit %>
+  <% end %>
+</div>
