@@ -16,6 +16,8 @@ gem 'devise'
 
 gem 'pg'
 
+gem 'pry', '~> 0.13.1'
+
 gem 'bootstrap', '~> 5.2', '>= 5.2.3'
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"

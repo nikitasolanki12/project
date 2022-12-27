@@ -48,12 +48,12 @@ body {
      display:inline-block;
 }
 .sidebar {
-  margin: 0;
-  padding: 0;
-  width: 200px;
-  background-color: steelblue;
-  position: fixed;
-  height: 100%;
+  border-bottom: 1px solid steelblue;
+  background-color:skyblue;
+  width: 250px;
+  padding-left: 20px;
+  height: 100vh;
+  border-top-right-radius: 80px;
 }
 h1{
      text-align:center;
@@ -63,7 +63,11 @@ h2{
   color:blue;
   text-align:center;
   margin-top:150px;   
+}
 
+h3{
+  color:blue;
+  text-align:center; 
 }
 
 .flex-box{
@@ -143,11 +147,6 @@ h2{
      width:40px;
 }
 
- .friend-box{
-
- 
- }
-
 body {
         background-color: #f1f1f1;
         color: black;
@@ -196,13 +195,12 @@ body {
                  border:2px solid steelblue;
 }
 .card-body1{
-             padding: 0px;
              border-radius: 15px;
              border: 2px solid steelblue;
              width: 600px;
              height: 250px auto;
              text-align:left;
-             margin:50px 50px 50px 30px;
+             margin:100px 200px 1000px 600px;
              padding:20px;
             }
 .card-body2 {

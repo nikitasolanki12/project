@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   def new
-    @posts = User.find(params[:id]).posts 
+    # @posts = User.find(params[:id]).posts 
     @comment = Comment.new
   end
 
@@ -13,13 +13,15 @@ class CommentsController < ApplicationController
   end
 
   def create
+    # binding.pry
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new(comment_params.merge(user_id: current_user.id))
     @comment.save
-    redirect_to posts_path(@post)  
+    redirect_to posts_path(@post)
   end
 
   def destroy
+    # binding.pry
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
     #@comment = @post.comments.find params[:id]

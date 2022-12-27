@@ -1,0 +1,17 @@
+
+<h3>Commented posts</h3>
+<div class="card-body1" style="width: 40rem;">
+  <ul class="list-group list-group-flush">
+    <li>
+      <% @commentpost.each do |post| %>
+       <%#= post.description %><br/>
+       <%= image_tag url_for(post.image), width: "600px" %><br/>
+       <br/>
+       <%= render 'comments/form', post: post %><br/>
+         <% post.comments.each do |comment| %> 
+          <%= comment.description %><br>
+        <% end %> 
+      <% end %>
+    </li>
+  </ul>
+</div>
