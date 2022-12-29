@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
   def new
-    # @posts = User.find(params[:id]).posts 
+    # @posts = User.find(params[:id]).posts
     @comment = Comment.new
   end
 
@@ -24,17 +26,18 @@ class CommentsController < ApplicationController
     # binding.pry
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
-    #@comment = @post.comments.find params[:id]
+    # @comment = @post.comments.find params[:id]
     @comment.destroy
 
     respond_to do |format|
-     format.html { redirect_to posts_path }
-     format.json { head :no_content }
-     format.js   { render :layout => false }
+      format.html { redirect_to posts_path }
+      format.json { head :no_content }
+      format.js   { render layout: false }
     end
   end
 
-   private
+  private
+
   def comment_params
     params.require(:comment).permit(:post_id, :user_id, :description)
   end

@@ -1,5 +1,5 @@
 <div class="card shadow-sm">
-    <%= image_tag url_for(post.image) if post.image.attached? %>
+  <%= image_tag url_for(post.image) if post.image.attached? %>
 </text></svg>
 
   <div class="card-body">
@@ -8,16 +8,20 @@
       <div class="btn-group">
         <%= link_to "Edit", edit_post_path(id:post.id),class: "btn btn-sm btn-outline-primary" %><br/>
         <%= button_to 'Delete', post_path(post), method: :delete ,class:"btn btn-sm btn-outline-primary"%><br>
+
+        <% if post.liked?(current_user) %>
+         <%= button_to 'Dislike', post_like_path(post, post.user_like(current_user)), method: :delete ,class:"btn btn-sm btn-outline-primary"%>
+        <% else %>
+         <%= button_to 'like', post_likes_path(post_id:post.id), method: "post", class:"btn btn-sm btn-outline-primary"%>
+        <% end %>
       </div>
     </div>
     <%= render 'comments/form', post: post %><br/>
       <% post.comments.each do |comment| %>
-      <li>
-        <%= comment.description %>
-        <%# binding.pry %>
-        <%#= button_to 'Delete', post_comment_path(comment), method: :delete ,class:"btn btn-sm btn-outline-primary"%>
+        <li>
+         <%= comment.description %>
          <%= button_to 'Delete',[comment.post, comment], method: :delete ,class:"btn btn-sm btn-outline-primary"%>
-      </li>
+        </li>
       <% end %>
   </div>
 </div>
