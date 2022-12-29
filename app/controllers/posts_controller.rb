@@ -1,29 +1,27 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
   def index
     @post = Post.new
-    @posts = Post.all.order("posts.created_at desc")
+    @posts = Post.all.order('posts.created_at desc')
   end
 
   def create
-   # binding.pry
     @post = Post.new(post_params)
     @post.user = current_user
-    if @post.save
-    else
-      render 'new'
-    end
+    render 'new' unless @post.save
     respond_to do |format|
       format.html { redirect_to posts_path }
-      format.js 
+      format.js
     end
   end
 
-  def top5commentedpost 
-   @topcommentpost = Post.joins(:comments).group('posts.id').having('count(comments.id) > ?', 2)
+  def top5commentedpost
+    @topcommentpost = Post.joins(:comments).group('posts.id').having('count(comments.id) > ?', 2)
   end
 
   def commentedpost
-   @commentpost = Post.joins(:comments).group('posts.id').having('count(comments.id) > ?', 0)
+    @commentpost = Post.joins(:comments).group('posts.id').having('count(comments.id) > ?', 0)
   end
 
   def find_post
@@ -39,9 +37,9 @@ class PostsController < ApplicationController
     @post.destroy
 
     respond_to do |format|
-     format.html { redirect_to posts_path }
-     format.json { head :no_content }
-     format.js   { render :layout => false }
+      format.html { redirect_to posts_path }
+      format.json { head :no_content }
+      format.js   { render layout: false }
     end
   end
 
@@ -53,8 +51,9 @@ class PostsController < ApplicationController
       render 'edit'
     end
   end
-    
-    private
+
+  private
+
   def post_params
     params.require(:post).permit(:user_id, :description, :image)
   end
