@@ -5,18 +5,19 @@
   <div class="card-body">
     <p class="card-text"><%= post.description %></p><br/>
     <div class="d-flex justify-content-between align-items-center">
-      <div class="btn-group">       
+      <div class="btn-group">
         <%= link_to "Edit", edit_post_path(id:post.id),class: "btn btn-sm btn-outline-primary" %><br/>
         <%= button_to 'Delete', post_path(post), method: :delete ,class:"btn btn-sm btn-outline-primary"%><br>
       </div>
     </div>
     <%= render 'comments/form', post: post %><br/>
       <% post.comments.each do |comment| %>
-      <li>   
-        <%= comment.description %>  
+      <li>
+        <%= comment.description %>
+        <%# binding.pry %>
         <%#= button_to 'Delete', post_comment_path(comment), method: :delete ,class:"btn btn-sm btn-outline-primary"%>
-         <%= button_to 'Delete',[comment.post, comment], method: :delete ,class:"btn btn-sm btn-outline-primary"%>  
-      </li> 
+         <%= button_to 'Delete',[comment.post, comment], method: :delete ,class:"btn btn-sm btn-outline-primary"%>
+      </li>
       <% end %>
   </div>
 </div>

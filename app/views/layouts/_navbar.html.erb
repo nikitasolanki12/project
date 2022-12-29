@@ -8,19 +8,44 @@
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
+          <a class="nav-link active" href="<%= root_path %>"> 
+         <span class="icon"><i class="fas fa-user"></i></span>
+         <span class="item">Home</span>
+        </a>
+        </li>
+        <li class="nav-item">
       <% if current_user %>
-        <a class="nav-link active" href="<%= users_path %> 
+        <a class="nav-link active" href="<%= users_path %>"> 
          <span class="icon"><i class="fas fa-user"></i></span>
          <span class="item">Profile</span>
         </a>
             <span class="visually-hidden">(current)</span>
           </a>
         </li> 
-      </ul>
-      
+        <li class="nav-item">
+          <a class="nav-link active" href="<%= posts_path %>"> 
+         <span class="icon"><i class="fas fa-user"></i></span>
+         <span class="item">Posts</span>
+        </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="<%= top5commentedpost_posts_path %>"> 
+         <span class="icon"><i class="fas fa-user"></i></span>
+         <span class="item">Top posts</span>
+        </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="<%= commentedpost_posts_path %>"> 
+         <span class="icon"><i class="fas fa-user"></i></span>
+         <span class="item">commented posts</span>
+        </a>
+        </li>
+      </ul>   
     </div>
   </div>
   <%= button_to "logout", destroy_user_session_path, method: :delete, class: "btn btn-light"%>
+
+  <%= link_to "signin", user_session_path, method: :create, class: "btn btn-light"%>
   <% end %>
 </nav>
 

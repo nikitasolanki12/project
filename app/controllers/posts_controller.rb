@@ -1,14 +1,11 @@
 class PostsController < ApplicationController
   def index
     @post = Post.new
-     @posts = Post.all.order("posts.created_at desc")
-  end
-
-  def new
-     @post = Post.new
+    @posts = Post.all.order("posts.created_at desc")
   end
 
   def create
+   # binding.pry
     @post = Post.new(post_params)
     @post.user = current_user
     if @post.save
@@ -21,8 +18,12 @@ class PostsController < ApplicationController
     end
   end
 
-  def show
-    @post = Post.find(params[:id])
+  def top5commentedpost 
+   @topcommentpost = Post.joins(:comments).group('posts.id').having('count(comments.id) > ?', 2)
+  end
+
+  def commentedpost
+   @commentpost = Post.joins(:comments).group('posts.id').having('count(comments.id) > ?', 0)
   end
 
   def find_post

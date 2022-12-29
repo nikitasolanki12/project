@@ -16,6 +16,8 @@ gem 'devise'
 
 gem 'pg'
 
+gem 'pry', '~> 0.13.1'
+
 gem 'activeadmin'
 
 gem 'bootstrap', '~> 5.2', '>= 5.2.3'
