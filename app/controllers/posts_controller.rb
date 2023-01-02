@@ -17,11 +17,11 @@ class PostsController < ApplicationController
   end
 
   def top5commentedpost
-    @topcommentpost = Post.joins(:comments).group('posts.id').having('count(comments.id) > ?', 2)
+    @topcommentpost = Post.comment.having('count(comments.id) > ?', 2)
   end
 
   def commentedpost
-    @commentpost = Post.joins(:comments).group('posts.id').having('count(comments.id) > ?', 0)
+    @commentpost = Post.comment.having('count(comments.id) > ?', 0)
   end
 
   def find_post
