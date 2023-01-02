@@ -13,4 +13,7 @@ class Post < ApplicationRecord
   def user_like(user)
     likes.find { |like| like.user_id == user.id }
   end
+  
+  scope :comment, -> {joins(:comments).group('posts.id')}
+
 end
