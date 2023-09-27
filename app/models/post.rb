@@ -16,4 +16,11 @@ class Post < ApplicationRecord
   
   scope :comment, -> {joins(:comments).group('posts.id')}
 
+  after_create :send_post_email
+
+  private
+
+  def send_post_email
+    UserMailer.new_post_email(self).deliver_now
+  end
 end
