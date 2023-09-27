@@ -8,4 +8,10 @@ class User < ApplicationRecord
 
   has_many :posts
   has_many :comments
+  
+  after_create :send_welcome_email
+ 
+  def send_welcome_email
+    UserMailer.welcome_email(self).deliver_now
+  end
 end
